@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       try {
         // Using Formspree service (you'll need to sign up at formspree.io)
-        const response = await fetch('https://formspree.io/f/mqabpdla', {
+        const response = await fetch('https://formspree.io/f/mnnvvrrb', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
