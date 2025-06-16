@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Failed to send message. Please try again or contact directly at hridoyahmedddd@gmail.com');
+        alert('Failed to send message. Please try again or contact directly at sahmed221241@bscse.uiu.ac.bd');
       } finally {
         // Reset button state
         submitBtn.textContent = originalText;
