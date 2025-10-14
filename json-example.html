@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 { color: #333; }
+    h2 { color: #667eea; margin-top: 0; }
+    .project-item, .skill-item {
+      padding: 10px;
+      margin: 10px 0;
+      background: #f9f9f9;
+      border-left: 3px solid #667eea;
+      border-radius: 4px;
+    }
+    .badge {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      margin: 2px;
+    }
+    a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Portfolio Data Example</h1>
+  <p>This page demonstrates how to use the <code>portfolio-data.json</code> file.</p>
+
+  <div id="content">
+    <p>Loading data...</p>
+  </div>
+
+  <script>
+    // Fetch and display portfolio data
+    fetch('portfolio-data.json')
+      .then(response => response.json())
+      .then(data => {
+        displayPortfolio(data);
+      })
+      .catch(error => {
+        document.getElementById('content').innerHTML = 
+          '<p style="color: red;">Error loading portfolio data: ' + error + '</p>';
+      });
+
+    function displayPortfolio(data) {
+      const content = document.getElementById('content');
+      
+      let html = `
+        <div class="section">
+          <h2>Profile</h2>
+          <h3>${data.profile.name}</h3>
+          <p><strong>${data.profile.title}</strong></p>
+          <p>${data.profile.bio}</p>
+        </div>
+
+        <div class="section">
+          <h2>Skills (${data.skills.length} categories)</h2>
+          ${data.skills.map(skill => `
+            <div class="skill-item">
+              <strong>${skill.icon} ${skill.title}</strong>
+              <p>${skill.description}</p>
+              <div>
+                ${skill.technologies.map(tech => `<span class="badge">${tech}</span>`).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="section">
+          <h2>Projects (${data.projects.length} total)</h2>
+          ${data.projects.map(project => `
+            <div class="project-item">
+              <h3>${project.title}</h3>
+              <p><em>${project.type}</em></p>
+              <p>${project.description}</p>
+              ${project.links ? `
+                <p>
+                  ${project.links.live ? `<a href="${project.links.live}" target="_blank">View Live</a>` : ''}
+                  ${project.links.source ? ` | <a href="${project.links.source}" target="_blank">Source Code</a>` : ''}
+                </p>
+              ` : ''}
+              <div>
+                ${project.technologies.map(tech => `<span class="badge">${tech}</span>`).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="section">
+          <h2>Social Links</h2>
+          <p>
+            ${data.socialLinks.map(link => `
+              <a href="${link.url}" target="_blank">${link.platform}</a>
+            `).join(' | ')}
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
+          <p>${data.contact.message}</p>
+        </div>
+      `;
+      
+      content.innerHTML = html;
+    }
+  </script>
+</body>
+</html>
