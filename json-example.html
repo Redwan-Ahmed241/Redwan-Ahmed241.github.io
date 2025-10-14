@@ -55,6 +55,27 @@
   </div>
 
   <script>
+    // Helper function to escape HTML to prevent XSS
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Helper function to validate and sanitize URLs
+    function sanitizeUrl(url) {
+      try {
+        const urlObj = new URL(url);
+        // Only allow http and https protocols
+        if (urlObj.protocol === 'http:' || urlObj.protocol === 'https:') {
+          return urlObj.href;
+        }
+      } catch (e) {
+        // Invalid URL
+      }
+      return '#';
+    }
+
     // Fetch and display portfolio data
     fetch('portfolio-data.json')
       .then(response => response.json())
@@ -62,8 +83,12 @@
         displayPortfolio(data);
       })
       .catch(error => {
-        document.getElementById('content').innerHTML = 
-          '<p style="color: red;">Error loading portfolio data: ' + error + '</p>';
+        const content = document.getElementById('content');
+        const errorP = document.createElement('p');
+        errorP.style.color = 'red';
+        errorP.textContent = 'Error loading portfolio data: ' + error.message;
+        content.innerHTML = '';
+        content.appendChild(errorP);
       });
 
     function displayPortfolio(data) {
@@ -72,19 +97,19 @@
       let html = `
         <div class="section">
           <h2>Profile</h2>
-          <h3>${data.profile.name}</h3>
-          <p><strong>${data.profile.title}</strong></p>
-          <p>${data.profile.bio}</p>
+          <h3>${escapeHtml(data.profile.name)}</h3>
+          <p><strong>${escapeHtml(data.profile.title)}</strong></p>
+          <p>${escapeHtml(data.profile.bio)}</p>
         </div>
 
         <div class="section">
           <h2>Skills (${data.skills.length} categories)</h2>
           ${data.skills.map(skill => `
             <div class="skill-item">
-              <strong>${skill.icon} ${skill.title}</strong>
-              <p>${skill.description}</p>
+              <strong>${escapeHtml(skill.icon)} ${escapeHtml(skill.title)}</strong>
+              <p>${escapeHtml(skill.description)}</p>
               <div>
-                ${skill.technologies.map(tech => `<span class="badge">${tech}</span>`).join('')}
+                ${skill.technologies.map(tech => `<span class="badge">${escapeHtml(tech)}</span>`).join('')}
               </div>
             </div>
           `).join('')}
@@ -94,17 +119,17 @@
           <h2>Projects (${data.projects.length} total)</h2>
           ${data.projects.map(project => `
             <div class="project-item">
-              <h3>${project.title}</h3>
-              <p><em>${project.type}</em></p>
-              <p>${project.description}</p>
+              <h3>${escapeHtml(project.title)}</h3>
+              <p><em>${escapeHtml(project.type)}</em></p>
+              <p>${escapeHtml(project.description)}</p>
               ${project.links ? `
                 <p>
-                  ${project.links.live ? `<a href="${project.links.live}" target="_blank">View Live</a>` : ''}
-                  ${project.links.source ? ` | <a href="${project.links.source}" target="_blank">Source Code</a>` : ''}
+                  ${project.links.live ? `<a href="${sanitizeUrl(project.links.live)}" target="_blank" rel="noopener noreferrer">View Live</a>` : ''}
+                  ${project.links.source ? ` | <a href="${sanitizeUrl(project.links.source)}" target="_blank" rel="noopener noreferrer">Source Code</a>` : ''}
                 </p>
               ` : ''}
               <div>
-                ${project.technologies.map(tech => `<span class="badge">${tech}</span>`).join('')}
+                ${project.technologies.map(tech => `<span class="badge">${escapeHtml(tech)}</span>`).join('')}
               </div>
             </div>
           `).join('')}
@@ -114,15 +139,15 @@
           <h2>Social Links</h2>
           <p>
             ${data.socialLinks.map(link => `
-              <a href="${link.url}" target="_blank">${link.platform}</a>
+              <a href="${sanitizeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.platform)}</a>
             `).join(' | ')}
           </p>
         </div>
 
         <div class="section">
           <h2>Contact</h2>
-          <p>Email: <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
-          <p>${data.contact.message}</p>
+          <p>Email: <a href="mailto:${escapeHtml(data.contact.email)}">${escapeHtml(data.contact.email)}</a></p>
+          <p>${escapeHtml(data.contact.message)}</p>
         </div>
       `;
       
