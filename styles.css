@@ -622,15 +622,37 @@ section {
   letter-spacing: 0.2px;
 }
 
+.contact-info-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent1);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.contact-info-item:hover {
+  color: var(--accent2);
+}
+
     /* Bottom Navigation Styles */
     .bottom-navbar {
       position: fixed;
       bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
-      width: 50%;
-      max-width: 320px;
-      min-width: 250px;
+      width: 65%;
+      max-width: 440px;
+      min-width: 300px;
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
       backdrop-filter: blur(25px);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -716,14 +738,30 @@ section {
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .bottom-navbar {
-        width: 80%;
-        min-width: 230px;
-        padding: 6px 12px;
+        width: 96%;
+        min-width: 300px;
+        max-width: 96vw;
+        padding: 6px 8px;
       }
       
       .nav-item {
-        padding: 5px 3px;
-        max-width: 45px;
+        padding: 5px 1px;
+        max-width: 38px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .bottom-navbar {
+        width: 100%;
+        min-width: unset;
+        border-radius: 0;
+        bottom: 0;
+        padding: 6px 4px;
+      }
+
+      .nav-item {
+        padding: 5px 1px;
+        max-width: 34px;
       }
     }
 
