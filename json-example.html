@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 { color: #333; }
+    h2 { color: #667eea; margin-top: 0; }
+    .project-item, .skill-item {
+      padding: 10px;
+      margin: 10px 0;
+      background: #f9f9f9;
+      border-left: 3px solid #667eea;
+      border-radius: 4px;
+    }
+    .badge {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      margin: 2px;
+    }
+    a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Portfolio Data Example</h1>
+  <p>This page demonstrates how to use the <code>portfolio-data.json</code> file.</p>
+
+  <div id="content">
+    <p>Loading data...</p>
+  </div>
+
+  <script>
+    // Helper function to escape HTML to prevent XSS
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Helper function to validate and sanitize URLs
+    function sanitizeUrl(url) {
+      try {
+        const urlObj = new URL(url);
+        // Only allow http and https protocols
+        if (urlObj.protocol === 'http:' || urlObj.protocol === 'https:') {
+          return urlObj.href;
+        }
+      } catch (e) {
+        // Invalid URL
+      }
+      return '#';
+    }
+
+    // Helper function to validate email addresses
+    function validateEmail(email) {
+      // Basic email validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Fetch and display portfolio data
+    fetch('portfolio-data.json')
+      .then(response => response.json())
+      .then(data => {
+        displayPortfolio(data);
+      })
+      .catch(error => {
+        const content = document.getElementById('content');
+        const errorP = document.createElement('p');
+        errorP.style.color = 'red';
+        errorP.textContent = 'Error loading portfolio data: ' + error.message;
+        content.innerHTML = '';
+        content.appendChild(errorP);
+      });
+
+    function displayPortfolio(data) {
+      const content = document.getElementById('content');
+      
+      let html = `
+        <div class="section">
+          <h2>Profile</h2>
+          <h3>${escapeHtml(data.profile.name)}</h3>
+          <p><strong>${escapeHtml(data.profile.title)}</strong></p>
+          <p>${escapeHtml(data.profile.bio)}</p>
+        </div>
+
+        <div class="section">
+          <h2>Skills (${data.skills.length} categories)</h2>
+          ${data.skills.map(skill => `
+            <div class="skill-item">
+              <strong>${escapeHtml(skill.icon)} ${escapeHtml(skill.title)}</strong>
+              <p>${escapeHtml(skill.description)}</p>
+              <div>
+                ${skill.technologies.map(tech => `<span class="badge">${escapeHtml(tech)}</span>`).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="section">
+          <h2>Projects (${data.projects.length} total)</h2>
+          ${data.projects.map(project => `
+            <div class="project-item">
+              <h3>${escapeHtml(project.title)}</h3>
+              <p><em>${escapeHtml(project.type)}</em></p>
+              <p>${escapeHtml(project.description)}</p>
+              ${project.links ? `
+                <p>
+                  ${project.links.live ? `<a href="${sanitizeUrl(project.links.live)}" target="_blank" rel="noopener noreferrer">View Live</a>` : ''}
+                  ${project.links.source ? ` | <a href="${sanitizeUrl(project.links.source)}" target="_blank" rel="noopener noreferrer">Source Code</a>` : ''}
+                </p>
+              ` : ''}
+              <div>
+                ${project.technologies.map(tech => `<span class="badge">${escapeHtml(tech)}</span>`).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="section">
+          <h2>Social Links</h2>
+          <p>
+            ${data.socialLinks.map(link => `
+              <a href="${sanitizeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.platform)}</a>
+            `).join(' | ')}
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Contact</h2>
+          <p>Email: ${validateEmail(data.contact.email) ? `<a href="mailto:${data.contact.email}">${escapeHtml(data.contact.email)}</a>` : escapeHtml(data.contact.email)}</p>
+          <p>${escapeHtml(data.contact.message)}</p>
+        </div>
+      `;
+      
+      content.innerHTML = html;
+    }
+  </script>
+</body>
+</html>
