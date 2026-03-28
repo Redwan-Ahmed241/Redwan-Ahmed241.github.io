@@ -622,28 +622,6 @@ section {
   letter-spacing: 0.2px;
 }
 
-.contact-info-row {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
-
-.contact-info-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--accent1);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-
-.contact-info-item:hover {
-  color: var(--accent2);
-}
-
     /* Bottom Navigation Styles */
     .bottom-navbar {
       position: fixed;
