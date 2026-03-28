@@ -1,0 +1,203 @@
+{
+  "profile": {
+    "name": "Shah Redwan Ahmed",
+    "displayName": "Redwan",
+    "title": "Frontend Developer | UI/UX Designer | Competitive Programmer",
+    "images": {
+      "profile": "profile.jpg",
+      "about": "about-pic.jpg"
+    },
+    "bio": "I am a passionate and dedicated Computer Science and Engineering student at United International University, specializing in Software Engineering and Frontend Development. Skilled in React, Django, Supabase, TailwindCSS, and Figma — I aim to craft impactful software solutions and sleek user experiences."
+  },
+  "education": [
+    {
+      "degree": "BSc in Computer Science & Engineering",
+      "institution": "United International University",
+      "status": "In Progress"
+    },
+    {
+      "degree": "HSC",
+      "institution": "BAF Shaheen College",
+      "gpa": "5.00"
+    },
+    {
+      "degree": "SSC",
+      "institution": "South Point School",
+      "gpa": "5.00"
+    }
+  ],
+  "interests": [
+    "Software Engineering",
+    "Full Stack Development",
+    "Design of aircraft subsystems",
+    "Development of programs for design & analysis of aircraft components (CAD, CFD etc).",
+    "Mobile App Development"
+  ],
+  "experiences": [
+    {
+      "role": "Frontend Developer(React)",
+      "organization": "Freelance",
+      "description": "As a developer I built responsive, user-centric interfaces using React. I focus on delivering seamless UI/UX through reusable components, state management, and integration with backend APIs to create dynamic web applications."
+    }
+  ],
+  "skills": [
+    {
+      "icon": "⚛️",
+      "title": "Frontend Development",
+      "description": "Building responsive, user-centric UIs with React, TailwindCSS, and modern JavaScript frameworks.",
+      "technologies": ["React", "TailwindCSS", "JavaScript", "Figma"]
+    },
+    {
+      "icon": "⚙️",
+      "title": "Backend Development",
+      "description": "REST APIs, authentication, booking logic, and server-side systems using Django & Node.js.",
+      "technologies": ["Django", "Node.js", "Express"]
+    },
+    {
+      "icon": "🗄️",
+      "title": "Databases & Cloud",
+      "description": "Designing schemas, managing users, and deploying scalable apps with Supabase and PostgreSQL.",
+      "technologies": ["Supabase", "PostgreSQL", "SQL"]
+    },
+    {
+      "icon": "🎨",
+      "title": "UI/UX Design",
+      "description": "Creating intuitive, user-friendly experiences with wireframes, prototypes, and design systems in Figma.",
+      "technologies": ["Figma", "Prototyping", "User Research"]
+    },
+    {
+      "icon": "📱",
+      "title": "Mobile & Full-stack",
+      "description": "Cross-platform apps (React Native) and full-stack integration for web apps.",
+      "technologies": ["React Native", "Expo", "APIs"]
+    },
+    {
+      "icon": "🏆",
+      "title": "Competitive Programming",
+      "description": "Problem-solving on Codeforces, LeetCode, HackerRank; national contest experience.",
+      "technologies": ["C++", "Python", "Algorithms"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "VillaEase",
+      "type": "Room Booking Platform",
+      "description": "Full-stack system (React frontend, Django backend, Supabase DB). Features villa listings, calendar availability, booking flow, payment integration, and admin dashboard.",
+      "links": {
+        "live": "https://manchestervillas.netlify.app/"
+      },
+      "technologies": ["React", "Django", "Supabase"]
+    },
+    {
+      "title": "WanderNest",
+      "type": "Travel & Tourism Website",
+      "description": "React + Django + Supabase, with user auth, tour packages, hotel & flight booking pages, and UI/UX-first design.",
+      "links": {
+        "live": "https://wandernestbd.netlify.app/"
+      },
+      "technologies": ["React", "Django", "Supabase"]
+    },
+    {
+      "title": "BazarLTD",
+      "type": "E-commerce Platform",
+      "description": "Product listings, cart, checkout, and admin product management. (Frontend + API integration)",
+      "links": {
+        "live": "https://baarltd22.surge.sh",
+        "source": "https://github.com/Md-Sifat-code/BazarLTD"
+      },
+      "technologies": ["React", "API Integration"]
+    },
+    {
+      "title": "TenmanBD ERP",
+      "type": "ERP System",
+      "description": "Business management tools, dashboards, and reports. (React + backend APIs)",
+      "links": {
+        "live": "https://tenmanbd.com"
+      },
+      "technologies": ["React", "Backend APIs"]
+    },
+    {
+      "title": "University Event Admin",
+      "type": "Event Management Platform",
+      "description": "PHP-based platform to manage university club events, announcements, and forums.",
+      "links": {
+        "source": "https://github.com/hrid0yyy/University-Eventmanagement"
+      },
+      "technologies": ["PHP"]
+    },
+    {
+      "title": "Shopify Store (Upwork)",
+      "type": "E-commerce",
+      "description": "Custom Shopify storefront and configuration for a freelance client (themes, product setup, basic scripts).",
+      "technologies": ["Shopify"]
+    }
+  ],
+  "achievements": {
+    "hackerrank": {
+      "title": "HackerRank",
+      "stars": {
+        "problemSolving": 5,
+        "cpp": 5
+      },
+      "profileUrl": "https://www.hackerrank.com/RedCodes"
+    },
+    "certifications": [
+      "Problem Solving (Basic & Intermediate)",
+      "Python (Basic)",
+      "JavaScript (Basic & Intermediate)",
+      "SQL (Basic)",
+      "CSS (Basic)",
+      "Java (Basic)",
+      "React (Basic)"
+    ],
+    "competitiveProgramming": [
+      {
+        "achievement": "6th place — Smart Bangladesh Programming Contest (2023)"
+      },
+      {
+        "achievement": "Active contributor & contest participant (Codeforces, LeetCode, Vjudge)"
+      }
+    ]
+  },
+  "contact": {
+    "email": "sahmed221241@bscse.uiu.ac.bd",
+    "message": "Feel free to reach out for collaboration, questions, or just to say hi!",
+    "formEndpoint": "https://formspree.io/f/mnnvvrrb"
+  },
+  "socialLinks": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/Redwan-Ahmed241",
+      "className": "github"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/shah-redwan-ahmed-78b149249/",
+      "className": "linkedin"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/shah.redwan.ahmed.2024/",
+      "className": "facebook"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/shahredwanahmed/",
+      "className": "instagram"
+    },
+    {
+      "platform": "Codeforces",
+      "url": "https://codeforces.com",
+      "className": "codeforces"
+    },
+    {
+      "platform": "LeetCode",
+      "url": "https://leetcode.com",
+      "className": "leetcode"
+    }
+  ],
+  "metadata": {
+    "copyright": "© 2025 Redwan — Software Engineering Portfolio. Made with ❤️",
+    "lastUpdated": "2025-01-14"
+  }
+}
