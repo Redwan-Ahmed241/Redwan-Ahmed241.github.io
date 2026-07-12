@@ -1450,3 +1450,55 @@ section {
     transform: none; /* Disable hover transforms on touch devices */
   }
 }
+
+/* CV Download Button */
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+  color: var(--bg) !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  margin-top: 1.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 230, 255, 0.3);
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  position: relative;
+}
+
+.cv-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 203, 0.4);
+}
+
+.cv-download-btn:active {
+  transform: translateY(-1px);
+}
+
+.cv-download-btn.header-cv-btn {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  margin-top: 0;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.2rem;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .cv-download-btn.header-cv-btn {
+    top: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    padding: 0.45rem 0.9rem;
+    gap: 5px;
+  }
+}
+
+
