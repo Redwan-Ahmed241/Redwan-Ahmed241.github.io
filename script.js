@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sections = Array.from(links).map(link => document.querySelector(link.getAttribute('href')));
   
   function onScroll() {
-    let scrollPos = window.scrollY + 80;
+    let scrollPos = window.scrollY + 120;
     let activeIdx = 0;
     for (let i = 0; i < sections.length; i++) {
       if (sections[i] && sections[i].offsetTop <= scrollPos) {
@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
       submitBtn.disabled = true;
       
       try {
-        // Using Formspree service (you'll need to sign up at formspree.io)
         const response = await fetch('https://formspree.io/f/mnnvvrrb', {
           method: 'POST',
           headers: {
@@ -82,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
         alert('Failed to send message. Please try again or contact directly at sahmed221241@bscse.uiu.ac.bd');
       } finally {
-        // Reset button state
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       }
