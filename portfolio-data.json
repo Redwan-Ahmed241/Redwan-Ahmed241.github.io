@@ -108,13 +108,13 @@
       "technologies": ["React", "API Integration"]
     },
     {
-      "title": "TenmanBD ERP",
-      "type": "ERP System",
-      "description": "Business management tools, dashboards, and reports. (React + backend APIs)",
+      "title": "TenmanBD",
+      "type": "Corporate Website",
+      "description": "A website for a multi-sector business group in Bangladesh, presenting its services, values, and office locations in one place.",
       "links": {
         "live": "https://tenmanbd.com"
       },
-      "technologies": ["React", "Backend APIs"]
+      "technologies": ["HTML", "CSS", "JavaScript"]
     },
     {
       "title": "University Event Admin",

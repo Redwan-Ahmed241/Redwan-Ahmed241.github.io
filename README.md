@@ -32,7 +32,7 @@ It showcases profile info, skills, projects, achievements, and contact/social li
 - VillaEase (Room Booking Platform)
 - WanderNest (Travel & Tourism Website)
 - BazarLTD (E-commerce Platform)
-- TenmanBD ERP
+- TenmanBD (Corporate Website)
 - University Event Admin
 - Shopify Store (Upwork)
 
