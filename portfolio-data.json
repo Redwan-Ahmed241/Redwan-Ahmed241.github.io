@@ -50,8 +50,8 @@
     {
       "icon": "⚙️",
       "title": "Backend Development",
-      "description": "REST APIs, authentication, booking logic, and server-side systems using Django & Node.js.",
-      "technologies": ["Django", "Node.js", "Express"]
+      "description": "REST APIs, authentication, booking logic, and server-side systems using FastAPI, Django & Node.js.",
+      "technologies": ["FastAPI", "Django", "Node.js"]
     },
     {
       "icon": "🗄️",
@@ -84,7 +84,7 @@
       "type": "Room Booking Platform",
       "description": "Full-stack system (React frontend, Django backend, Supabase DB). Features villa listings, calendar availability, booking flow, payment integration, and admin dashboard.",
       "links": {
-        "live": "https://manchestervillas.netlify.app/"
+        "source": "https://github.com/Redwan-Ahmed241/RoomBooking-app"
       },
       "technologies": ["React", "Django", "Supabase"]
     },
@@ -102,19 +102,18 @@
       "type": "E-commerce Platform",
       "description": "Product listings, cart, checkout, and admin product management. (Frontend + API integration)",
       "links": {
-        "live": "https://baarltd22.surge.sh",
-        "source": "https://github.com/Md-Sifat-code/BazarLTD"
+        "source": "https://github.com/Redwan-Ahmed241/BazarLimited-CS"
       },
       "technologies": ["React", "API Integration"]
     },
     {
-      "title": "TenmanBD ERP",
-      "type": "ERP System",
-      "description": "Business management tools, dashboards, and reports. (React + backend APIs)",
+      "title": "TenmanBD",
+      "type": "Corporate Website",
+      "description": "A website for a multi-sector business group in Bangladesh, presenting its services, values, and office locations in one place.",
       "links": {
         "live": "https://tenmanbd.com"
       },
-      "technologies": ["React", "Backend APIs"]
+      "technologies": ["HTML", "CSS", "JavaScript"]
     },
     {
       "title": "University Event Admin",
