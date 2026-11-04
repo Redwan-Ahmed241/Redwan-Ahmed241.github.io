@@ -474,7 +474,6 @@ section {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 2rem;
-  border-left: 4px solid var(--accent1);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -483,7 +482,6 @@ section {
 .about-education:hover,
 .about-interests:hover {
   border-color: var(--border-hover);
-  border-left: 4px solid var(--accent1);
   transform: translateY(-3px);
   box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
 }
@@ -591,13 +589,11 @@ section {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 28px 32px;
-  border-left: 4px solid var(--accent1);
   transition: var(--transition);
 }
 
 .experience-item:hover {
   border-color: var(--border-hover);
-  border-left: 4px solid var(--accent1);
   transform: translateY(-3px);
   box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
 }
