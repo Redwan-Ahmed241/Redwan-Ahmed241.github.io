@@ -50,8 +50,8 @@
     {
       "icon": "⚙️",
       "title": "Backend Development",
-      "description": "REST APIs, authentication, booking logic, and server-side systems using Django & Node.js.",
-      "technologies": ["Django", "Node.js", "Express"]
+      "description": "REST APIs, authentication, booking logic, and server-side systems using FastAPI, Django & Node.js.",
+      "technologies": ["FastAPI", "Django", "Node.js"]
     },
     {
       "icon": "🗄️",
